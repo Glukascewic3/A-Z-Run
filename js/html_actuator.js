@@ -23,18 +23,33 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
   var s = Math.floor(metadata.score);
 
-       if (s > 2048) classes.push("tile-super")
-  else if (s > 1024) classes.push("tile-2048")
-  else if (s >  512) classes.push("tile-1024")
-  else if (s >  256) classes.push("tile-512")
-  else if (s >  128) classes.push("tile-256")
-  else if (s >   64) classes.push("tile-128")
-  else if (s >   32) classes.push("tile-64")
-  else if (s >   16) classes.push("tile-32")
-  else if (s >    8) classes.push("tile-16")
-  else if (s >    4) classes.push("tile-8")
-  else if (s >    2) classes.push("tile-4")
-  else               classes.push("tile-2");
+       if (s >   25) classes.push("tile-super")
+  else if (s >   24) classes.push("tile-25")
+  else if (s >   23) classes.push("tile-24")
+  else if (s >   22) classes.push("tile-23")
+  else if (s >   21) classes.push("tile-22")
+  else if (s >   20) classes.push("tile-21")
+  else if (s >   19) classes.push("tile-20")
+  else if (s >   18) classes.push("tile-19")
+  else if (s >   17) classes.push("tile-18")
+  else if (s >   16) classes.push("tile-17")
+  else if (s >   15) classes.push("tile-16")
+  else if (s >   14) classes.push("tile-15")
+  else if (s >   13) classes.push("tile-14")
+  else if (s >   12) classes.push("tile-13")
+  else if (s >   11) classes.push("tile-12")
+  else if (s >   10) classes.push("tile-11")
+  else if (s >    9) classes.push("tile-10")
+  else if (s >    8) classes.push("tile-9")
+  else if (s >    7) classes.push("tile-8")
+  else if (s >    6) classes.push("tile-7")
+  else if (s >    5) classes.push("tile-6")
+  else if (s >    4) classes.push("tile-5")
+  else if (s >    3) classes.push("tile-4")
+  else if (s >    2) classes.push("tile-3")
+  else if (s >    1) classes.push("tile-2")
+  else if (s >    0) classes.push("tile-1")
+  else               classes.push("tile-0");
 
   this.applyClasses(this.birdobj, classes);
 
@@ -84,7 +99,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 2048) classes.push("tile-super");
+  if (tile.value > 25) classes.push("tile-super");
 
   this.applyClasses(wrapper, classes);
 
@@ -153,7 +168,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "Level Complete!" : "Never Give Up!";
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
